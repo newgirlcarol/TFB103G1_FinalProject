@@ -10,9 +10,7 @@ import random
 HOTELs_MainPage_Url    ='https://tw.hotels.com/ho545286/?q-check-in=2021-10-08&q-check-out=2021-10-16&q-rooms=1&q-room-0-adults=2&q-room-0-children=0&f-hotel-id=479182&sort-order=BEST_SELLER&WOD=6&WOE=6&MGT=7&ZSX=0&SYE=3&YGF=2'
 HOTELs_Tail_Url =              '/ho545286/?q-check-in=2021-10-08&q-check-out=2021-10-16&q-rooms=1&q-room-0-adults=2&q-room-0-children=0&f-hotel-id=479182&sort-order=BEST_SELLER&WOD=6&WOE=6&MGT=7&ZSX=0&SYE=3&YGF=2'
 HOTELs_Details_Main_Url ='https://tw.hotels.com'
-headers = {'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36'
-                #   ,'Cookie' : '_abck=C9C27062C41BC93B4EF5B32CF4E9A56A~0~YAAQRDArF5KbVyJ8AQAAe3ZgJQagTPaOZqKXW2fWTo6EvWz+iKdULOSxN/7zzlX1KdsxnMCcFS6at7rkR0dpJAT4NI+fUlJWARZ+bkmHLfhU9umGnRmlZOeC8XzB1ttZxFKRHOFBjGgYZ2IRbQC763k7i2d2owuD91P5gvwsxIb0coAqHMXfZYeQlTHpzRhLxj3jVL7OkxXMsnc9URTUqgl966kPXJl3GWGdg5NWbIAZxLTsdyECpMe5HtvHIaotHL7IAvC/5m0S1f6jqY8lPhQAWdmBAY19PZXbVRMbNh9EnJFy/xPDWT84/irUnvfCoxVIab/hJxQFZS6fXaMiIZS0qToIUbMUuQvCzjdfSCYkFbgVe6wFLdQBWcwkbI09MpnBvBLOBG7i30sY77uo2+4DVimtgCdJIg==~-1~-1~-1; bm_sz=8C6289387D9A037B92D458BD2BD73499~YAAQPBQgF0sfqw98AQAAW9dRJQ34A/lmTJZrXCnC/wnxKQ+yahk8yjrBLOMiF/aG6BAXr+70WsQJENuFPAmqvy5lJj3y0SbPM91JaKzMP+bzBED3X3cUtqNUaeQBuFqUkdXFjPZhwo+XlpHXkZ+O52CqUCAPGYL5GpEz+fBmrV/LAvaCNB/5RGhTAPq8n7jWcj6cqiTW1yPcmtXexLoodwAKCz4HDzHzIsMyJYHBsb1gUoIZiJO9XDRnkA56zlamhOV/JPxBGtId6XNWcycpXfRbPYBi5Iw5nrWlZvkDLMXRBvw=~4273203~3425349; asc=1; visitId=39bf0d6f-5d27-41c9-b997-205d7b264b1b; SESSID=v3Wf8L2AUelYawXwJiiM8GXaZ9.hpa-784555f78d-8gqn5; user=QSp6aF9UV3xIQ09NX1RX; guid=dd147de2-f697-4356-b082-360a5a350cf2; MC1=GUID=7f900f38ac94480f8092a9f10f53b99c; DUAID=7f900f38-ac94-480f-8092-a9f10f53b99c; mvthistory=eJwtjDkOwzAMBH9EiPfRpkkTuAmQ0rX%2F4MdHFtUNh7ubAQYDLsaSVPCHozBIJ40JjkCP9MIUW5JGZEsu4uBmLFLLDmjupLEAru88vC1cVEzuKyGIukGlh2Sy8ZY%2Bus8lJLvCA3vHS5SpA7OVsVr3%2B3V8zu%2FvD7ZZLqA%3D; AMCV_C00802BE5330A8350A490D4C%40AdobeOrg=-1330315163%7CMCIDTS%7C18898%7CMCMID%7C08914753079315382361366251052946567019%7CMCAID%7CNONE%7CMCOPTOUT-1632720909s%7CNONE; Session_Pageviews=2; _gcl_au=1.1.1402945074.1632713709; s_ecid=MCMID%7C08914753079315382361366251052946567019; AMCVS_C00802BE5330A8350A490D4C%40AdobeOrg=1; s_cc=true; homepage_search_data=5paw5YyX5biCLCDlj7DngaM.%2F%2F2021-10-01%2F%2F2021-10-14%2F%2F2%2F%2Fyyyy-MM-dd%2F%2F1728696%2F%2F; dr=AAA~1632714645~828FA04A2F8F4A45B855D40B5BBEBA8C59CBA5B9BC7A45823F605A30E8B61F85; akacd_pr_20=1637898651~rv=54~id=ac5b822fa1552374dbaa5bba27456b62; xdid=b85776f5-7317-4208-951d-715dcf54b652|1632713708|zh.hotels.com; xdidp=b85776f5-7317-4208-951d-715dcf54b652|1632713708|zh.hotels.com; _uetsid=e8d9aff01f4311ec8a33e1b5b728869e; _uetvid=e8d9d4c01f4311ec9126336562b7e4be; aws=1; AFFLB=A'
-                }
+headers = {'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36'}
 HOTELs_MainUrl_Head = 'https://tw.hotels.com'
 # SubFunction
 def MainPageData(hotel_url):
@@ -56,12 +54,10 @@ def MainPageData(hotel_url):
 
     HOTELs_VAL_STRs_Name ='' 
     HOTELs_VAL_STRs_ID = ''
-    #
     # Web  TAG  Data
     HOTELs_TAGs_Name =  '_2h6Jhd'
     HOTELs_TAGs_Stars   = '_2dOcxA'
     HOTELs_TAGs_Price = '_3XSqn6'   
-
     #  Address  TAG
     HOTELs_TAGs_Address = '_2lmU8j'
     HOTELs_TAGs_Address2 = 'aqrHQz'
@@ -106,7 +102,6 @@ def MainPageData(hotel_url):
                         print('\n',type(HOTELs_VAL_STRs_ID))
 
     # Collect HOTELs Data
-    # HOTEL_DETAILs_DATA.append({HOTELs_KEY_STRs_ID:HOTELs_VAL_STRs_ID})
     HOTEL_DETAILs_DATA[HOTELs_KEY_STRs_ID] = HOTELs_VAL_STRs_ID
     HOTEL_DETAILs_DATA[HOTELs_KEY_STRs_URL] = HOTELs_MainUrl_Head+hotel_url
     # Program Start
@@ -114,14 +109,12 @@ def MainPageData(hotel_url):
     time.sleep(random.randint(2,8))
     # Init Session
     ss = requests.session()
-  
+      
     try:
         # Get the Hotels HTML data
         res_landing_page = ss.get(HOTELs_MainUrl_Head+hotel_url, headers=headers)
         soup_landing_page = BeautifulSoup(res_landing_page.text, 'html.parser')
     except:
-        print("Connection refused by the server..")
-        print("Let me sleep for 5 seconds")
         print("ZZzzzz...")
         HOTEL_DETAILs_DATA[HOTELs_KEY_STRs_Err] = 'requests.exceptions.ConnectionError.  Max retries exceeded '
         todaydate_time = datetime.datetime.now()
@@ -130,11 +123,6 @@ def MainPageData(hotel_url):
         with open('d:\\'+HOTEL_DETAILs_DATA[HOTELs_KEY_STRs_ID]+'_'+HOTELsFileTailName+'_'+date_time+'.json', 'w', encoding="utf-8") as file_handler:
             json.dump(HOTEL_DETAILs_DATA, file_handler, ensure_ascii=False )    
         return
-
-
-
-    ''' 
-    '''
     # Get Hotel Name
     HOTELs_Details_Url =[]
     # Get the HOTELs ID List , Type = LIST
@@ -163,7 +151,6 @@ def MainPageData(hotel_url):
     else:
             print('No Info Available! \n')
 
-
     # Get Hotel Prices
     HOTELs_List_html = soup_landing_page.find('div' , {'class' :HOTELs_TAGs_Price})
     if(HOTELs_List_html != None):
@@ -173,7 +160,6 @@ def MainPageData(hotel_url):
             HOTEL_DETAILs_DATA[HOTELs_KEY_STRs_Price] = HOTELs_List_html.text
     else:
             print('No Info Available! \n')
-
     
     # Get HOTELs_TAGs_Address
     HOTELs_List_html = soup_landing_page.find('div' , {'class' :HOTELs_TAGs_Address})
@@ -190,7 +176,6 @@ def MainPageData(hotel_url):
             print('No Info Available! \n')
 
     # Collect HOTELs Data
-    # HOTEL_DETAILs_DATA.append({HOTELs_KEY_STRs_Address:})
     if(HOTELs_List_html != None):
             if(HOTELs_List_html.text != None):
                 if(HOTELs_List_html.text != ''):
@@ -209,9 +194,7 @@ def MainPageData(hotel_url):
     else:
             print('No Info Available! \n')
     # Collect HOTELs Data
-    # HOTEL_DETAILs_DATA.append({HOTELs_KEY_STRs_KeyFacility:loop})
     HOTEL_DETAILs_DATA[HOTELs_KEY_STRs_KeyFacility] = loop
-
     loop1=[]
     loop2 =[]
     loop3=[]
@@ -244,14 +227,13 @@ def MainPageData(hotel_url):
             print('No Info Available! \n')
 
     # Collect HOTELs Data
-    # HOTEL_DETAILs_DATA.append({HOTELs_KEY_STRs_FeatureInfs:[loop1,loop2,loop3]})
     HOTEL_DETAILs_DATA[HOTELs_KEY_STRs_FeatureInfs] =[loop1,loop2,loop3]
-
-    # ReSet
+    # Reset loop
     loop1 =[]
     loop2 =[]
     loop3 =[]
     loop4=[]
+    
     # Get Hotels HOTELs_TAGs_Lardmark 
     HOTELs_List_html = soup_landing_page.find('div' , {'class' :HOTELs_TAGs_Lardmark})
     if(HOTELs_List_html != None):
@@ -286,7 +268,6 @@ def MainPageData(hotel_url):
             print('No Info Available! \n')
 
     # Collect HOTELs Data
-    # HOTEL_DETAILs_DATA.append({HOTELs_KEY_STRs_LandMark:[loop1,loop2,loop3,loop4]})
     HOTEL_DETAILs_DATA[HOTELs_KEY_STRs_LandMark]=[loop1,loop2,loop3,loop4]
 
     loop1 =[]
@@ -300,7 +281,6 @@ def MainPageData(hotel_url):
             print('No Info Available! \n')
 
     # Collect HOTELs Data
-    # HOTEL_DETAILs_DATA.append({HOTELs_KEY_STRs_Airport:loop1})
     HOTEL_DETAILs_DATA[HOTELs_KEY_STRs_Airport]=loop1
     loop2= []
     # Get  HOTELs_TAGs_Train 
@@ -312,7 +292,6 @@ def MainPageData(hotel_url):
     else:
             print('No Info Available! \n')
     # Collect HOTELs Data
-    # HOTEL_DETAILs_DATA.append({HOTELs_KEY_STRs_Train:loop2})
     HOTEL_DETAILs_DATA[HOTELs_KEY_STRs_Train]=loop2
 
     loop3 =[]
@@ -326,10 +305,7 @@ def MainPageData(hotel_url):
             print('No Info Available! \n')
 
     # Collect HOTELs Data
-    # HOTEL_DETAILs_DATA.append({HOTELs_KEY_STRs_Shuttle:loop3})
     HOTEL_DETAILs_DATA[HOTELs_KEY_STRs_Shuttle]= loop3
-
-    # 
     # Get  HOTELs_TAGs_Map 
     loop1 = []
     HOTELs_List_html = soup_landing_page.find('div' , {'class' :HOTELs_TAGs_Map})
@@ -346,7 +322,6 @@ def MainPageData(hotel_url):
             print('No Info Available! \n')
 
     # Collect HOTELs Data
-    # HOTEL_DETAILs_DATA.append({HOTELs_KEY_STRs_MapUrl:loop1})
     HOTEL_DETAILs_DATA[HOTELs_KEY_STRs_MapUrl] = loop1
 
     loop2  =[]
@@ -366,15 +341,12 @@ def MainPageData(hotel_url):
             print('No Info Available! \n')
 
     # Collect HOTELs Data
-    # HOTEL_DETAILs_DATA.append({HOTELs_KEY_STRs_ImgUrl:loop2})
     HOTEL_DETAILs_DATA[HOTELs_KEY_STRs_ImgUrl] =loop2
 
     loop3 =[]
     # Get  HOTELs_TAGs_Review1 Star & Count
     HOTELs_List_html = soup_landing_page.find('div' , {'class' :HOTELs_TAGs_Review_Content_Block})
     if(HOTELs_List_html != None):        
-            # print('\nTheHotels Scores = ', HOTELs_List_html.contents[0].text)
-            # print('\nTheHotels Review Count = ',HOTELs_List_html.contents[1].text)
             HotelsStar = HOTELs_List_html.find('span',{'class':HOTELs_TAGs_MainScores1})        
             if(HotelsStar == None): 
                 HotelsStar = HOTELs_List_html.find('span',{'class':HOTELs_TAGs_MainScores2})
@@ -389,11 +361,7 @@ def MainPageData(hotel_url):
     else:
             print('No Info Available! \n')
     # Collect HOTELs Data
-    # HOTEL_DETAILs_DATA.append({HOTELs_KEY_STRs_ReviewRank:loop3})
     HOTEL_DETAILs_DATA[HOTELs_KEY_STRs_ReviewRank]= loop3
-
-    ### Here start to get  review link  ================================
-
     HotelReviewMainPageUrl =''
     ReviewDataContent = []
     CommentReview = []
@@ -470,10 +438,5 @@ def MainPageData(hotel_url):
     # Write Hotel Details dictionary  to file
     with open('d:\\'+HOTEL_DETAILs_DATA[HOTELs_KEY_STRs_ID]+'_'+HOTELsFileTailName+'_'+date_time+'.json', 'w', encoding="utf-8") as file_handler:
         json.dump(HOTEL_DETAILs_DATA, file_handler, ensure_ascii=False )
-
-     # with open('d:\\'+CommentFileName+date_time,'w', encoding='utf-8')  as fout:
-                #         # fout.write(CommentReview)
-                #         json.dump(CommentReview, fout, ensure_ascii=False )
-        
     print()
     print()

@@ -10,23 +10,17 @@ import json
 Booking Hotels TAG  Define ====================================================================
 
 '''
-
 BOOKing_TAG_Str_Hotel_List_Data = 'a233d9c18f'
 BOOKing_TAG_Str_Hotel_List_Data = 'eafde27db6'
 BOOKing_TAG_Str_Hotel_Url_Head= 'https://www.booking.com'
 BOOKing_TAG_Str_ReviewScores = 'eb2161f400 e5a32fd86b'
 BOOKing_TAG_Str_ReviewCounts = '_79b2b046b0 b33b89e42f _5586935da5 _6a1b6ff88e'
-
 BOOKing_TAG_Str_StarCounts = 'cf18357eee cf1a1ba763 _698592d8e6'
-
 BOOKing_TAG_Str_StarCountsPath = '0 0 24 24'
-
 ''' 
 Booking Hotels data  Dictionary  Define =============================================================
-
 '''
 BOOKing_HOTELs_DETAILs_DATA = {}
-
 BOOKing_HOTELs_KEY_STRs_Hotels_Id = 'hotel-id'
 BOOKing_HOTELs_KEY_STRs_Hotels_Name = 'hotel-name'
 BOOKing_HOTELs_KEY_STRs_Hotels_Url = 'hotel-url'
@@ -51,10 +45,7 @@ BOOKing_HOTELs_KEY_STRs_Hotels_NearByTrain= 'hotel-nearby-train'
 BOOKing_HOTELs_KEY_STRs_Hotels_NearByAirport= 'hotel-nearby-airport'
 BOOKing_HOTELs_KEY_STRs_Hotels_NearByWebLink= 'hotel-img-link'
 
-
-
 headers = {'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36'}
-
 
 
 #  Sub Function start here 
@@ -67,13 +58,6 @@ def ScrapeHotelDetails(HotelDetailUrl):
         # 
         res_landing_page = ss.get(HotelDetailUrl, headers=headers)
         soup_landing_page = BeautifulSoup(res_landing_page.text, 'html.parser')
-
-
-        # Can not find hotel
-        # hotel_map_url =  soup_landing_page.find(id="hotel_header")
-        # # # hotel_map_url = soup_landing_page.select('a[href*="#map_opened-hotel_header"]')
-        # # hotel_map_url = json.loads(hotel_map_url)
-        # print('\n page_data = ' , hotel_map_url )
         
         #0 Get Hotels ID
         UrlResult = urlparse(HotelDetailUrl)
@@ -94,7 +78,7 @@ def ScrapeHotelDetails(HotelDetailUrl):
         # Collect Hotel ID data
         BOOKing_HOTELs_DETAILs_DATA[BOOKing_HOTELs_KEY_STRs_Hotels_Id] = str(hotel_id)
         
-        #1 Get Hotels Name         
+        #Get Hotels Name         
         hotel_name= soup_landing_page.find(id='hp_hotel_name')
         if  hotel_name == None:
                 hotel_name = soup_landing_page.find('div', class_='hp__hotel-title')
@@ -106,14 +90,10 @@ def ScrapeHotelDetails(HotelDetailUrl):
                         # Collect Hotel delail data
                         BOOKing_HOTELs_DETAILs_DATA[BOOKing_HOTELs_KEY_STRs_Hotels_Name] = str(item)
         
-        # 1 Get Hotels Url:
+        # Get Hotels Url:
         BOOKing_HOTELs_DETAILs_DATA[BOOKing_HOTELs_KEY_STRs_Hotels_Url] = HotelDetailUrl
 
-         #3  Get Hotels Stars
-        # hotel_star =  soup_landing_page.select(f'span[class="{BOOKing_TAG_Str_StarCounts}"]>svg[viewBox="{BOOKing_TAG_Str_StarCountsPath}"] >path')
-        # <div data-testid="quality-rating" class="bce6e31203">
-        # hp__hotel_ratings__stars nowrap
-        # hotel_star = soup_landing_page.find('div', class_='bd891cfe38' )
+         # Get Hotels Stars
         hotel_star = soup_landing_page.find('span', class_='hp__hotel_ratings__stars nowrap' )
         if  hotel_star != None:      
                 star =  hotel_star.find_all('span',class_='cf18357eee cf1a1ba763 _698592d8e6')              
@@ -125,7 +105,7 @@ def ScrapeHotelDetails(HotelDetailUrl):
         # Collect Hotel delail data
         BOOKing_HOTELs_DETAILs_DATA[BOOKing_HOTELs_KEY_STRs_Hotels_StarRank] = str(hotel_star)       
 
-        #2-2 Get Hotel  room prices ----------------------------------------------------------------------------
+        # Get Hotel  room prices ----------------------------------------------------------------------------
         hotel_room_prices =   soup_landing_page.find('div',  class_ = 'bui-price-display__value prco-text-nowrap-helper prco-inline-block-maker-helper prco-f-font-heading')    
         for item in  hotel_room_prices:
                 if item != None and item !='\n' and item !='':
@@ -138,19 +118,16 @@ def ScrapeHotelDetails(HotelDetailUrl):
                         break
         BOOKing_HOTELs_DETAILs_DATA[BOOKing_HOTELs_KEY_STRs_Hotels_RoomPrice] =avg_price
 
-        #2-3 Get Hotel  room prices ----------------------------------------------------------------------------
-
-
-        #2-1 Get Hotels Address         
+        # Get Hotels Address         
         hotel_address= soup_landing_page.find('p',  class_ = 'address address_clean')
-        # locate correct data
+        # Locate correct data
         for data in hotel_address:
                 if  'hp_address_subtitle'  in  data:
                         print('\n Get Address = ', data)
                         print('\n hotel address= ',data.text)
         BOOKing_HOTELs_DETAILs_DATA[BOOKing_HOTELs_KEY_STRs_Hotels_Address] = hotel_address.text               
 
-    #5 Get Key/Important facility
+        # Get Key/Important facility
         loop1 =[]  # Initial a list  for collect data             
         key_facility = soup_landing_page.find_all('div', class_='important_facility')
         print('\n Key / Important facility   ', key_facility)
@@ -161,7 +138,7 @@ def ScrapeHotelDetails(HotelDetailUrl):
         # Collect hotel data
         BOOKing_HOTELs_DETAILs_DATA[BOOKing_HOTELs_KEY_STRs_Hotels_KeyFacility] =loop1
 
-        #4 Get a. Review Scores /Points -  b. review counts-----------------------------------------------
+        # Get a. Review Scores /Points -  b. review counts-----------------------------------------------
         hotel_review_scores = soup_landing_page.find('div', class_='eb2161f400 e5a32fd86b')
  
         if hotel_review_scores != None:
@@ -177,7 +154,7 @@ def ScrapeHotelDetails(HotelDetailUrl):
         else:
             BOOKing_HOTELs_DETAILs_DATA[BOOKing_HOTELs_KEY_STRs_Hotels_ReviewCounts] =  'empty'            
         
-        #8 Get Hotel Img Link / Img List -----------------------------------------------------------------------------------------
+        # Get Hotel Img Link / Img List -----------------------------------------------------------------------------------------
         loop1 =[]
         img_block = soup_landing_page.find('div', class_='clearfix bh-photo-grid bh-photo-grid--space-down fix-score-hover-opacity')
         if  img_block == None:                        
@@ -199,7 +176,7 @@ def ScrapeHotelDetails(HotelDetailUrl):
         # Collect Hotel delail data
         BOOKing_HOTELs_DETAILs_DATA[BOOKing_HOTELs_KEY_STRs_Hotels_ImgList] = loop1
 
-    #6 Get Review Content Block   -----------------------------------------------------------------------------------------------------
+        # Get Review Content Block   -----------------------------------------------------------------------------------------------------
         loop1 =[]  # Initial a list  for collect data             
         # review_block = soup_landing_page.find_all('span', class_='c-review__body')
         review_block = soup_landing_page.find_all('div', class_='c-review-snippet')
@@ -224,11 +201,8 @@ def ScrapeHotelDetails(HotelDetailUrl):
         # Collect hotel  review data   
         BOOKing_HOTELs_DETAILs_DATA[BOOKing_HOTELs_KEY_STRs_Hotels_ReviewBlocks] =loop1
         
-        #7 Get  Review Score Bar ------------------------------------------------------------------------------------------------------
+        # Get  Review Score Bar ------------------------------------------------------------------------------------------------------
         loop1 =[]  # Initial a list  for collect data    
-        # <span class="c-score-bar__title">住宿地點</span>         
-        # <span class="c-score-bar__score">9.0</span>
-        # review_score_bar= soup_landing_page.find_all('li', class_='v2_review-scores__subscore hp_subscore_explanation_item_desktop')
         review_score_bar= soup_landing_page.find_all('ul', class_='v2_review-scores__subscore__inner v2_review-scores__subscore__inner-compared_to_average')
         if review_score_bar == None:
                 review_score_bar= soup_landing_page.find_all('ul', class_=' v2_review-scores__subscore__inner v2_review-scores__subscore__inner-compared_to_average v2_review-scores__subscore__inner-single_column  hp_subscore_explanation_view ')
@@ -246,7 +220,7 @@ def ScrapeHotelDetails(HotelDetailUrl):
         BOOKing_HOTELs_DETAILs_DATA[BOOKing_HOTELs_KEY_STRs_Hotels_ReviewScrollBar] =  loop1
 
 
-        #7 Get nearby landmark & hot spot
+        # Get nearby landmark & hot spot
         loop1 =[]  # Initial a list  for collect data    
         nearbylandmark = soup_landing_page.find_all('div', class_='hp_location_block__section_container')        
         for item in nearbylandmark:
@@ -311,7 +285,7 @@ def ScrapeHotelDetails(HotelDetailUrl):
                         if loop1 != None:
                                 BOOKing_HOTELs_DETAILs_DATA[BOOKing_HOTELs_KEY_STRs_Hotels_NearByAirport] =  loop1
 
-        #9 Get Hotel Facility List
+        # Get Hotel Facility List
         FaicilityList = soup_landing_page.find('div', class_='hotel-facilities__list')
         FaicilityBlock= FaicilityList.find_all('div', class_ ='hotel-facilities-group')
         loop1 =[]
@@ -325,10 +299,10 @@ def ScrapeHotelDetails(HotelDetailUrl):
                             loop1.append(block.text)
         BOOKing_HOTELs_DETAILs_DATA[BOOKing_HOTELs_KEY_STRs_Hotels_FacilityList] = loop1
 
-        # Save Josn data   ==========================================================================
+        # Save Json data   ==========================================================================
         todaydate_time = datetime.datetime.now()
         date_time = todaydate_time.strftime("%m_%d_%H_%M") 
-        # Write Hotel Details dictionary  to file
+        # Write Hotel Details dictionary to file
         with open('d:\\'+BOOKing_HOTELs_DETAILs_DATA[BOOKing_HOTELs_KEY_STRs_Hotels_Id]+'_'+date_time+'.json', 'w', encoding="utf-8") as file_handler:
             json.dump(BOOKing_HOTELs_DETAILs_DATA, file_handler, ensure_ascii=False )
                      
