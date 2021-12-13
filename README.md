@@ -2,7 +2,7 @@
     Tibame | TFB103 | AI/BigData courses Final Project
 🛎️ **團隊** \
 資料工程組：[Danny Huang](https://github.com/Danny0515)、[Clair Chen](https://github.com/inarutosai7) \
-資料分析組：[德發](https://github.com/7050KoRinKo)、[Wei Hsun](https://github.com/KiddChang)、Me
+資料分析組：[Uriboudesu](https://github.com/7050KoRinKo)、[Wei Hsun](https://github.com/KiddChang)、Me
 
 🛎️ **提案發想** \
 是否有過經驗，除了透過訂房網找房，還要花時間到部落格看心得分享? 或是想要知道現在話題正夯的飯店? \
